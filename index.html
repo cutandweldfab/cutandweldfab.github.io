@@ -19,6 +19,8 @@
         <a href="index.html" class="active">Home</a>
         <a href="portfolio.html">Portfolio</a>
         <a href="services.html">Services</a>
+        <a href="rates.html">Rates</a>
+        <a href="availability.html">Availability</a>
         <a href="about.html">Get to Know Me</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -96,7 +98,7 @@
   <section class="cta-band">
     <div class="container">
       <h2>Ready when you are</h2>
-      <p>Homeowner, architect, or builder — let’s talk about the metal.</p>
+      <p>Homeowner, architect, or builder — let’s talk about the metal. Estimates and bids are always free.</p>
       <a href="contact.html" class="btn btn-primary">Request a Quote</a>
     </div>
   </section>
@@ -110,6 +112,8 @@
       <div class="footer-links">
         <a href="portfolio.html">Portfolio</a>
         <a href="services.html">Services</a>
+        <a href="rates.html">Rates</a>
+        <a href="availability.html">Availability</a>
         <a href="about.html">Get to Know Me</a>
         <a href="contact.html">Contact</a>
       </div>
@@ -118,6 +122,19 @@
       </div>
     </div>
   </footer>
+
+  <div class="email-popup-overlay" id="emailPopup" aria-hidden="true">
+    <div class="email-popup" role="dialog" aria-labelledby="popup-title">
+      <button type="button" class="email-popup-close" id="popupClose" aria-label="Close">&times;</button>
+      <h3 id="popup-title">Stay Connected</h3>
+      <p>Get updates on availability and project highlights from Cut and Weld Fabrication.</p>
+      <form id="popupEmailForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="email" name="email" placeholder="Your email" required>
+        <button type="submit" class="btn btn-primary">Join the List</button>
+      </form>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
