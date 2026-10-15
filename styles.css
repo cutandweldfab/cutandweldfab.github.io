@@ -92,7 +92,7 @@ a { color: inherit; text-decoration: none; }
   min-height: 82vh;
   display: flex;
   align-items: flex-end;
-  background: var(--black) url('images/architectural-truss.jpg') center/cover no-repeat;
+  background: var(--black) url('architectural-truss.jpg') center/cover no-repeat;
   position: relative;
   color: var(--white);
 }
