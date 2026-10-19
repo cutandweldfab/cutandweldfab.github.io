@@ -1,3 +1,6 @@
+// Business contact
+var CW_EMAIL = 'cutandweldfab@gmail.com';
+
 // Mobile nav
 const navToggle = document.querySelector('.nav-toggle');
 const mainNav = document.querySelector('.main-nav');
@@ -44,8 +47,14 @@ filterBtns.forEach(btn => {
   });
 
   if (form) {
-    form.addEventListener('submit', function () {
-      try { sessionStorage.setItem('cw_email_popup_seen', '1'); } catch (e) {}
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      try { sessionStorage.setItem('cw_email_popup_seen', '1'); } catch (err) {}
+      var addr = (form.querySelector('input[name="email"]') || {}).value || '';
+      var subject = 'Add me to the Cut and Weld Fabrication list';
+      var body = 'Please add me to your email list for availability and project updates.\n\nMy email: ' + addr;
+      window.location.href = 'mailto:' + CW_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      closePopup();
     });
   }
 
@@ -57,4 +66,24 @@ filterBtns.forEach(btn => {
       overlay.setAttribute('aria-hidden', 'false');
     }, 3000);
   }
+})();
+
+// Quote form — opens the visitor's email app addressed to Cut and Weld Fabrication
+(function () {
+  var form = document.getElementById('quoteForm');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+    var projSel = document.getElementById('project');
+    var project = projSel && projSel.value ? projSel.options[projSel.selectedIndex].text : 'Not specified';
+    var name = val('name');
+    var subject = 'Quote Request: ' + project + (name ? ' - ' + name : '');
+    var body = 'Name: ' + name + '\n' +
+      'Email: ' + val('email') + '\n' +
+      'Phone: ' + (val('phone') || 'Not provided') + '\n' +
+      'Project Type: ' + project + '\n\n' +
+      'Project Details:\n' + val('message') + '\n';
+    window.location.href = 'mailto:' + CW_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  });
 })();
